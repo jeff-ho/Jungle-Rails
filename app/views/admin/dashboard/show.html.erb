@@ -1,2 +1,48 @@
-<h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+
+<section class="counter">
+    <div class="container">
+        <div class="counter__content">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="counter__item">
+                        <div class="counter__item__text">
+                            <i class="icon fas fa-project-diagram fa-3x"></i>
+                            <h2 class="counter_num"> <%= @all_categories %></h2>
+                            <p>Categories in DB </p>
+                        
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="counter__item second__item">
+                        <div class="counter__item__text">
+                            <i class="icon far fa-smile-beam fa-3x"></i>
+                            <h2 class="counter_num">Over 9000</h2>
+                            <p>happy clients</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="counter__item third__item">
+                        <div class="counter__item__text">
+                           <i class="icon fas fa-chalkboard-teacher fa-3x"></i>
+                           <h2 class="counter_num"> <%= @all_products %></h2>
+                            <p>products in database</p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="counter__item four__item">
+                        <div class="counter__item__text">
+                            <i class="icon fas fa-list-alt fa-3x"></i>
+                            <h2 class="counter_num">1 Million</h2>
+                            <p>in total sales</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
