@@ -1,6 +1,12 @@
 class CartsController < ApplicationController
 
   def show
+    if enhanced_cart.length() == 0 
+      flash[:error] = "Your cart is empty. Please add items before proceeding."
+      flash.each do |name, value|
+      end 
+      redirect_to root_path
+    end
   end
 
   def add_item

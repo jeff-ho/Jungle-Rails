@@ -117,3 +117,11 @@ form.button_to {
     font-weight: 700;
     font-family: "Montserrat";
 }
+
+.alert-danger {
+  display:flex;
+  justify-content: center;
+  font-size: xx-large;
+  font-weight: 800;
+  color: rgb(240, 36, 36);
+}
