@@ -1,13 +1,192 @@
 <section class="orders-show">
 
-  <header class="page-header">
-    <h1>Order #<%= @order.id %></h1>
-  </header>
+  <div class="container mt-5 mb-5">
 
-  <div class="order-summary jumbotron">
-    <h4>Thank you for your order!</h4>
-  </div>
+        <div class="row d-flex justify-content-center">
 
-  <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
+            <div class="col-md-8">
 
-</section>
+                <div class="card">
+
+                        <div class="invoice p-5">
+
+                            <h5> Your order is Confirmed!</h5>
+
+                            <span class="font-weight-bold d-block mt-4">Hello, Khurram Virani</span>
+                            <span>You order has been confirmed and will be shipped in next two days!</span>
+
+                            <div class="payment border-top mt-3 mb-3 border-bottom table-responsive">
+
+                                <table class="table table-borderless">
+                                    
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="py-2">
+
+                                                    <span class="d-block text-muted">Order Date</span>
+                                                <span>12 Jan,2018</span>
+                                                    
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <div class="py-2">
+
+                                                    <span class="d-block text-muted">Order No</span>
+                                                <span> <%= @line_items_array[0].order_id %> </span>
+                                                    
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <div class="py-2">
+
+                                                    <span class="d-block text-muted">Payment</span>
+                                                <span><img src="https://img.icons8.com/color/48/000000/mastercard.png" width="20" /></span>
+                                                    
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <div class="py-2">
+
+                                                    <span class="d-block text-muted">Shiping Address</span>
+                                                <span>123 Test Street, Testville, USA</span>
+                                                    
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+                                
+                            </div>
+
+                                <div class="product border-bottom table-responsive">
+
+                                    <table class="table table-borderless">
+
+                                    <tbody>
+
+                                    <% @combined_array.each do |line, item| %>
+                                      <%= render 'item', name: item.name, quantity: line.quantity.to_i, description: item.description, price: item.price_cents, image: item.image %>
+                                    <% end %>
+                                  
+                                    
+                                    </tbody> 
+                                        
+                                    </table>
+                                    
+
+
+                                </div>
+
+
+                                <div class="row d-flex justify-content-end">
+
+                                    <div class="col-md-5">
+
+                                        <table class="table table-borderless">
+
+                                            <tbody class="totals">
+
+                                                <tr>
+                                                    <td>
+                                                        <div class="text-left">
+
+                                                            <span class="text-muted">Subtotal</span>
+                                                            
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="text-right">
+                                                            <span> $<%= (@subtotal/100).to_f %> </span>
+                                                        </div>
+                                                    </td>
+                                                </tr>                                          
+
+                                                 <tr>
+                                                    <td>
+                                                        <div class="text-left">
+
+                                                            <span class="text-muted">Tax Fee</span>
+                                                            
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="text-right">
+                                                            <span> $<%= (((@subtotal/100)*0.13).round(2)) %> </span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+
+                                                 <tr>
+                                                    <td>
+                                                        <div class="text-left">
+
+                                                           
+                                                    </td>
+                                                </tr>
+
+
+                                                 <tr class="border-top border-bottom">
+                                                    <td>
+                                                        <div class="text-left">
+
+                                                            <span class="font-weight-bold">Total</span>
+                                                            
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="text-right">
+                                                            <span class="font-weight-bold"> $<%= ((@subtotal*1.13)/100).round(2)   %>  </span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                
+                                            </tbody>
+                                            
+                                        </table>
+                                        
+                                    </div>
+                                    
+
+
+                                </div>
+
+
+                                <p>We will be sending shipping confirmation email to <strong> <%=@order.email %> </strong> when the item shipped successfully!</p> 
+                                <p class="font-weight-bold mb-0">Thanks for shopping with us!</p>
+                                
+
+
+
+                            
+
+                        </div>
+
+
+                        <div class="d-flex justify-content-between footer p-3">
+
+                            <span>Need Help? visit our <a href="#"> help center</a></span>
+                             <span><%=@line_items_array[0].created_at %></span>
+                            
+                        </div>
+
+
+
+            
+        </div>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+  <%= link_to "Continue Shopping", root_path,  class: 'btn btn-lg btn-primary' %>
+  
+  </section>
+  
+  

@@ -2,6 +2,28 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+
+    @line_items_array = @order.line_items
+    @ordered_items_array = []
+    @subtotal = 0
+    @line_items_array.each do |line|
+
+    item = Product.find(line.product_id)
+    @ordered_items_array.push(item)
+    end
+    
+    @line_items_array.each do |line|
+      @subtotal = @subtotal + line.total_price_cents
+    end
+    @combined_array = @line_items_array.zip @ordered_items_array
+    p @subtotal
+
+  #  @combined_array.each do |line, item|
+  #   p line.item_price_cents
+  #   p item.name
+  #  end
+
+
   end
 
   def create
