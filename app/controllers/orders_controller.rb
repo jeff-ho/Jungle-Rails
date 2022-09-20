@@ -16,14 +16,7 @@ class OrdersController < ApplicationController
       @subtotal = @subtotal + line.total_price_cents
     end
     @combined_array = @line_items_array.zip @ordered_items_array
-    p @subtotal
-
-  #  @combined_array.each do |line, item|
-  #   p line.item_price_cents
-  #   p item.name
-  #  end
-
-
+   
   end
 
   def create
