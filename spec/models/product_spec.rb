@@ -8,8 +8,11 @@ RSpec.describe Product, type: :model do
       @product = Product.new(name: "Flower", price_cents: 1000, quantity: 5, category_id: @category.id )
     end
 
+    
     it 'should validate product is created' do
+       
       expect(@product).to be_present
+
     end
 
     it 'should validate product name' do
