@@ -6,16 +6,21 @@ class OrdersController < ApplicationController
     @line_items_array = @order.line_items
     @ordered_items_array = []
     @subtotal = 0
-    @line_items_array.each do |line|
 
-    item = Product.find(line.product_id)
-    @ordered_items_array.push(item)
+    
+    @line_items_array.each do |line|
+      item = Product.find(line.product_id)
+      @ordered_items_array.push(item)
     end
     
+    
+
     @line_items_array.each do |line|
       @subtotal = @subtotal + line.total_price_cents
     end
+
     @combined_array = @line_items_array.zip @ordered_items_array
+    
    
   end
 
