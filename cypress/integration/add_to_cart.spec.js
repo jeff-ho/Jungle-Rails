@@ -16,9 +16,8 @@ describe('Jungle feature spec', () => {
     cy.get(".products article").should("have.length", 2);
   });
 
-  it("There is a partials page for a product", () => {
-    cy.get('[alt="Scented Blade"]').click()
+  it("The cart should update with a new number when add to cart is pressed", () => {
+    cy.get('.btn').first().click()
+    cy.contains('My Cart').should('contain', '1')
   });
-
-
 })
