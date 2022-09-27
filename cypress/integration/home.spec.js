@@ -1,7 +1,7 @@
 describe('Jungle feature spec', () => {
   beforeEach(() => {
     cy.request('/cypress_rails_reset_state')
-    cy.visit("http://localhost:3000/")
+    cy.visit("/")
     
   })
   
